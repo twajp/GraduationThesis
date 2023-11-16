@@ -6,7 +6,7 @@ from concurrent.futures import ThreadPoolExecutor
 from telemetrix import telemetrix
 import keyboard
 
-otTime = 2/3*(3-1)
+otTime = 2/3*3-0.2
 logFilePath = logFilePath = os.path.expanduser('~/Desktop') + '/TSLog_' + datetime.now().strftime('%Y%m%d_%H%M') + '.csv'
 
 LEFT_PIN = 12
@@ -124,12 +124,12 @@ def mode_changer():
         elif keyboard.is_pressed("3"):
             if mode != 3:
                 mode = 3
-                otTime = 2/3*(3-1)
+                otTime = 2/3*3-0.2
                 print("Current Mode: 3")
         elif keyboard.is_pressed("5"):
             if mode != 5:
                 mode = 5
-                otTime = 2/3*(5-1)
+                otTime = 2/3*5-0.2
                 print("Current Mode: 5")
 
 
