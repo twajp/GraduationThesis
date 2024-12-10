@@ -1,3 +1,7 @@
+"""
+TSLogのtimestamp時点のACLogを取得して結合するスクリプト
+"""
+
 import sys
 import csv
 from datetime import datetime, timedelta
@@ -44,6 +48,6 @@ for i, line in enumerate(tslog):
 
 print(tslog_path)
 export_path = tslog_path.replace('/original/', '/post-processed/')
-with open(export_path[:-4]+'_aclog.csv', 'w', newline='') as f:
+with open(export_path[:-4]+'_ACLog.csv', 'w', newline='') as f:
     writer = csv.writer(f)
     writer.writerows(TSLog_with_ACLog)
