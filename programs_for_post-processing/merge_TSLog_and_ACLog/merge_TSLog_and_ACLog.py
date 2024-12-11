@@ -46,7 +46,6 @@ for i, line in enumerate(tslog):
             TSLog_with_ACLog.append(aclog_after_ts)
             break
 
-print(tslog_path)
 export_path = tslog_path.replace('/original/', '/post-processed/')
 with open(export_path[:-4]+'_ACLog.csv', 'w', newline='') as f:
     writer = csv.writer(f)
