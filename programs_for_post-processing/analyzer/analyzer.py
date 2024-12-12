@@ -42,16 +42,22 @@ for i in range(0, len(imported_data)):
         sum['5'][3] += 1  # データ数
 
 average = {
-    1: [sum['1'][0]/sum['1'][3], sum['1'][1]/sum['1'][3], sum['1'][2]/sum['1'][3]],
-    2: [sum['2'][0]/sum['2'][3], sum['2'][1]/sum['2'][3], sum['2'][2]/sum['2'][3]],
-    3: [sum['3'][0]/sum['3'][3], sum['3'][1]/sum['3'][3], sum['3'][2]/sum['3'][3]],
-    5: [sum['5'][0]/sum['5'][3], sum['5'][1]/sum['5'][3], sum['5'][2]/sum['5'][3]],
+    '1': [sum['1'][0]/sum['1'][3], sum['1'][1]/sum['1'][3], sum['1'][2]/sum['1'][3]],
+    '2': [sum['2'][0]/sum['2'][3], sum['2'][1]/sum['2'][3], sum['2'][2]/sum['2'][3]],
+    '3': [sum['3'][0]/sum['3'][3], sum['3'][1]/sum['3'][3], sum['3'][2]/sum['3'][3]],
+    '5': [sum['5'][0]/sum['5'][3], sum['5'][1]/sum['5'][3], sum['5'][2]/sum['5'][3]],
 }
 pprint(average)
-
-# with open(re.sub(r'Result_Time_Simple_', 'Result_', import_path), 'w', newline='') as f:
-#     writer = csv.writer(f)
-#     writer.writerows(result[1])
-#     writer.writerows(result[2])
-#     writer.writerows(result[3])
-#     writer.writerows(result[5])
+print(average['1'])
+with open('../../data/post-processed/Analysis_1.csv', 'a', newline='') as f:
+    writer = csv.writer(f)
+    writer.writerow(average['1'])
+with open('../../data/post-processed/Analysis_2.csv', 'a', newline='') as f:
+    writer = csv.writer(f)
+    writer.writerow(average['2'])
+with open('../../data/post-processed/Analysis_3.csv', 'a', newline='') as f:
+    writer = csv.writer(f)
+    writer.writerow(average['3'])
+with open('../../data/post-processed/Analysis_5.csv', 'a', newline='') as f:
+    writer = csv.writer(f)
+    writer.writerow(average['5'])
