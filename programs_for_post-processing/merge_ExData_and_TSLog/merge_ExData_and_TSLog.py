@@ -1,3 +1,4 @@
+import re
 import sys
 import csv
 from datetime import datetime, timedelta
@@ -30,6 +31,7 @@ if len(sys.argv) > 4:
     aclog2.pop(0)
     aclog.extend(aclog2)
 
+result = []
 
 for i in range(1, len(exdata)):
     if not exdata[i]:
@@ -54,7 +56,8 @@ for i in range(1, len(exdata)):
     # if ts_start > ts_end:
     ts_end = datetime.fromisoformat(tslog[next_index][1])
 
-    print(ts_start.time(), lc_start.time(), lc_end.time(), ts_end.time(), (lc_start-ts_start).total_seconds(), (lc_end-lc_start).total_seconds(), (ts_end-lc_end).total_seconds(), tslog[j][5])
+    result.append([ts_start.time(), lc_start.time(), lc_end.time(), ts_end.time(), (lc_start-ts_start).total_seconds(), (lc_end-lc_start).total_seconds(), (ts_end-lc_end).total_seconds(), tslog[j][5]])
+    print(*result[-1])
     # print(aclog)
 
     for x in range(1, len(aclog)):
@@ -82,6 +85,10 @@ exdata[0][0:0] = aclog[0][0:13]
 exdata[0].append('')
 exdata[0].extend(aclog[0][0:13])
 exdata[0].extend(['', 'lc_start-ts_start', 'lc_end-lc_start', 'ts_end-lc_end', 'tslog[next_index][5]'])
-with open(exdata_path[:-4]+'_aclog.csv', 'w', newline="") as f:
+with open(exdata_path[:-4]+'_aclog.csv', 'w', newline='') as f:
     writer = csv.writer(f)
     writer.writerows(exdata)
+
+with open(re.sub(r'ExData_.*?_', 'Result_Time_Simple_', exdata_path), 'w', newline='') as f:
+    writer = csv.writer(f)
+    writer.writerows(result)
