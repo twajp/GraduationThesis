@@ -47,7 +47,7 @@ for i in range(1, len(exdata)):
         if lc_start-ts_timestamp > timedelta(milliseconds=0):
             if l[6][-1] == 'n':
                 ts_start = ts_timestamp
-            next_index = j+1
+                next_index = j+1
         else:
             if l[6][-1] == 'f':
                 ts_end = ts_timestamp
