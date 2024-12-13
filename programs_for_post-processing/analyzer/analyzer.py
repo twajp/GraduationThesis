@@ -65,12 +65,12 @@ for i in range(0, len(imported_data)):
         if imported_data[i][10][0] == 'r':
             sum['3']['right'][0] += float(imported_data[i][4])  # ウインカーを付けてから車線変更するまで
             sum['3']['right'][1] += float(imported_data[i][5])  # 車線変更開始～終了まで
-            sum['3']['right'][2] += float(imported_data[i][6])  # 車線変更終了からウインカーを消すまで
+            sum['3']['right'][2] += (2/3)*3 - float(imported_data[i][4]) - float(imported_data[i][5])  # 車線変更終了からウインカーが「消える」まで
             sum['3']['right'][3] += 1  # データ数
         elif imported_data[i][10][0] == 'l':
             sum['3']['left'][0] += float(imported_data[i][4])  # ウインカーを付けてから車線変更するまで
             sum['3']['left'][1] += float(imported_data[i][5])  # 車線変更開始～終了まで
-            sum['3']['left'][2] += float(imported_data[i][6])  # 車線変更終了からウインカーを消すまで
+            sum['3']['left'][2] += (2/3)*3 - float(imported_data[i][4]) - float(imported_data[i][5])  # 車線変更終了からウインカーが「消える」まで
             sum['3']['left'][3] += 1  # データ数
     elif imported_data[i][7] == '5':
         sum['5']['both'][0] += float(imported_data[i][4])  # ウインカーを付けてから車線変更するまで
@@ -80,12 +80,12 @@ for i in range(0, len(imported_data)):
         if imported_data[i][10][0] == 'r':
             sum['5']['right'][0] += float(imported_data[i][4])  # ウインカーを付けてから車線変更するまで
             sum['5']['right'][1] += float(imported_data[i][5])  # 車線変更開始～終了まで
-            sum['5']['right'][2] += float(imported_data[i][6])  # 車線変更終了からウインカーを消すまで
+            sum['5']['right'][2] += (2/3)*5 - float(imported_data[i][4]) - float(imported_data[i][5])  # 車線変更終了からウインカーが「消える」まで
             sum['5']['right'][3] += 1  # データ数
         elif imported_data[i][10][0] == 'l':
             sum['5']['left'][0] += float(imported_data[i][4])  # ウインカーを付けてから車線変更するまで
             sum['5']['left'][1] += float(imported_data[i][5])  # 車線変更開始～終了まで
-            sum['5']['left'][2] += float(imported_data[i][6])  # 車線変更終了からウインカーを消すまで
+            sum['5']['left'][2] += (2/3)*5 - float(imported_data[i][4]) - float(imported_data[i][5])  # 車線変更終了からウインカーが「消える」まで
             sum['5']['left'][3] += 1  # データ数
 
 average = {
