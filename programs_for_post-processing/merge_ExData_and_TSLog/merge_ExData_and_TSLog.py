@@ -38,6 +38,8 @@ for i in range(1, len(exdata)):
         continue
     if exdata[i][0] == '':
         continue
+    if exdata[i][30] != 'end':  # 不適格なデータを除外
+        continue
 
     # 車線変更開始と終了時刻を記録
     lc_start = datetime.fromisoformat(exdata[i][0])
@@ -78,7 +80,14 @@ for i in range(1, len(exdata)):
     ts_end = datetime.fromisoformat(tslog[next_ts_index][1])
 
     result.append([ts_start.time(), lc_start.time(), lc_end.time(), ts_end.time(), (lc_start-ts_start).total_seconds(), (lc_end-lc_start).total_seconds(), (ts_end-lc_end).total_seconds(), tslog[ts_index][5], tslog[ts_index][6], tslog[next_ts_index][6], exdata[i][14], exdata[i][30]])
-    print(*result[-1])
+    if abs((lc_start-ts_start).total_seconds()) > 10 or abs((lc_end-lc_start).total_seconds()) > 10 or abs((ts_end-lc_end).total_seconds()) > 10:
+        print('\033[31m', end='')
+        print(*result[-1], end='')
+        print('\033[0m')
+        result.pop(-1)
+        continue
+    else:
+        print(*result[-1])
     # print(aclog)
 
     for x in range(1, len(aclog)):
