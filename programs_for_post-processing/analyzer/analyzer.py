@@ -103,42 +103,42 @@ average = {
           'left': [sum['5']['left'][0]/sum['5']['left'][3], sum['5']['left'][1]/sum['5']['left'][3], sum['5']['left'][2]/sum['5']['left'][3]]},
 }
 pprint(average)
-with open('../../data/post-processed/Analysis_1_both.csv', 'a', newline='') as f:
+with open('../../data/post-processed/Average_1_both.csv', 'a', newline='') as f:
     writer = csv.writer(f)
     writer.writerow(average['1']['both'])
-with open('../../data/post-processed/Analysis_1_right.csv', 'a', newline='') as f:
+with open('../../data/post-processed/Average_1_right.csv', 'a', newline='') as f:
     writer = csv.writer(f)
     writer.writerow(average['1']['right'])
-with open('../../data/post-processed/Analysis_1_left.csv', 'a', newline='') as f:
+with open('../../data/post-processed/Average_1_left.csv', 'a', newline='') as f:
     writer = csv.writer(f)
     writer.writerow(average['1']['left'])
 
-with open('../../data/post-processed/Analysis_2_both.csv', 'a', newline='') as f:
+with open('../../data/post-processed/Average_2_both.csv', 'a', newline='') as f:
     writer = csv.writer(f)
     writer.writerow(average['2']['both'])
-with open('../../data/post-processed/Analysis_2_right.csv', 'a', newline='') as f:
+with open('../../data/post-processed/Average_2_right.csv', 'a', newline='') as f:
     writer = csv.writer(f)
     writer.writerow(average['2']['right'])
-with open('../../data/post-processed/Analysis_2_left.csv', 'a', newline='') as f:
+with open('../../data/post-processed/Average_2_left.csv', 'a', newline='') as f:
     writer = csv.writer(f)
     writer.writerow(average['2']['left'])
 
-with open('../../data/post-processed/Analysis_3_both.csv', 'a', newline='') as f:
+with open('../../data/post-processed/Average_3_both.csv', 'a', newline='') as f:
     writer = csv.writer(f)
     writer.writerow(average['3']['both'])
-with open('../../data/post-processed/Analysis_3_right.csv', 'a', newline='') as f:
+with open('../../data/post-processed/Average_3_right.csv', 'a', newline='') as f:
     writer = csv.writer(f)
     writer.writerow(average['3']['right'])
-with open('../../data/post-processed/Analysis_3_left.csv', 'a', newline='') as f:
+with open('../../data/post-processed/Average_3_left.csv', 'a', newline='') as f:
     writer = csv.writer(f)
     writer.writerow(average['3']['left'])
 
-with open('../../data/post-processed/Analysis_5_both.csv', 'a', newline='') as f:
+with open('../../data/post-processed/Average_5_both.csv', 'a', newline='') as f:
     writer = csv.writer(f)
     writer.writerow(average['5']['both'])
-with open('../../data/post-processed/Analysis_5_right.csv', 'a', newline='') as f:
+with open('../../data/post-processed/Average_5_right.csv', 'a', newline='') as f:
     writer = csv.writer(f)
     writer.writerow(average['5']['right'])
-with open('../../data/post-processed/Analysis_5_left.csv', 'a', newline='') as f:
+with open('../../data/post-processed/Average_5_left.csv', 'a', newline='') as f:
     writer = csv.writer(f)
     writer.writerow(average['5']['left'])
