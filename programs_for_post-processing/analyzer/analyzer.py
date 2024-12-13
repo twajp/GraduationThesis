@@ -1,10 +1,9 @@
-import re
 import sys
 import csv
-from datetime import datetime, timedelta
 from pprint import pprint
 
 
+# Result_Time_Simple.csv
 import_path = sys.argv[1]
 imported_data = []
 with open(import_path) as f:
