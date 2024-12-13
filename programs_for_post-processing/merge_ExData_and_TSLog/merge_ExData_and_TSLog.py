@@ -43,8 +43,8 @@ for i in range(1, len(exdata)):
     lc_start = datetime.fromisoformat(exdata[i][0])
     lc_end = datetime.fromisoformat(exdata[i][16])
 
-    # tslogを一行ずつ取り出し、
-    for j, line in enumerate(tslog):  # この辺のコードがおかしそう11/26 ウインカーを出す前に車線変更をした場合の検討が足りない？
+    # tslogを一行ずつ取り出す
+    for j, line in enumerate(tslog):
         ts_timestamp = datetime.fromisoformat(line[1])
         ts = line[6]
         ts_mode = line[5]
@@ -75,7 +75,7 @@ for i in range(1, len(exdata)):
             #     break
     if tslog[next_ts_index][1][-1] == 'n':
         print('hello')
-    ts_end = datetime.fromisoformat(tslog[next_ts_index][1])  # 何のコード？
+    ts_end = datetime.fromisoformat(tslog[next_ts_index][1])
 
     result.append([ts_start.time(), lc_start.time(), lc_end.time(), ts_end.time(), (lc_start-ts_start).total_seconds(), (lc_end-lc_start).total_seconds(), (ts_end-lc_end).total_seconds(), tslog[ts_index][5], tslog[ts_index][6], tslog[next_ts_index][6], exdata[i][14], exdata[i][30]])
     print(*result[-1])
